@@ -1,0 +1,145 @@
+/* Основной стиль для контейнера игры */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f0f4f8; 
+    font-family: 'Arial', sans-serif; 
+    color: #333; 
+    padding: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .game-container h2 {
+    font-size: 2.5rem;
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .game-container button {
+    background: linear-gradient(145deg, #00b4d8, #008cba);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 400px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  }
+  
+  .game-container button:hover {
+    background: linear-gradient(145deg, #008cba, #00b4d8);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .game-container button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .score {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2980b9;
+    margin-top: 30px;
+  }
+  
+  .question-number {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  
+  .progress-container {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    height: 8px;
+    background-color: #e1e1e1;
+    border-radius: 20px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #00b4d8;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+  }
+  
+  .game-container p,
+  .game-container button {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .game-container p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ecf0f1; 
+    overflow-x: hidden;
+  }
+  
+.lifeline-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .lifeline-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .lifeline-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+      
+.restart-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+  background-color: #2980b9;
+}
