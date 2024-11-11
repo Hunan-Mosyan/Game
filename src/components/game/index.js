@@ -66,6 +66,7 @@ const Game = ({ setIsGameStarted }) => {
       setCurrentQuestionIndex(0); // 
       setScore(0); // 
       setDescriptionVisible(true); //cuyc enq talis opisanina
+      setLifelineUsed(false);
     }
   };
 

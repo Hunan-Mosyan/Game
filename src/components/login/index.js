@@ -1,27 +1,33 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
-import { auth } from '../../services/firebase/firebase';
+import { auth, db } from '../../services/firebase/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom';
+import './login.css'
 
 const Login = ({ setIsAuthenticated, setUserName }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const userDoc = await getDoc(doc(db, 'Users', user.uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        const fullName = `${userData.firstName} ${userData.lastName}`;
+        setUserName(fullName); 
+      }
 
       setIsAuthenticated(true);
-      const user = auth.currentUser;
-      setUserName(user.firstName || user.email); // useri anuny
-
       toast.success('User logged in successfully!', { position: 'top-center' });
 
-     
       navigate('/profile');
     } catch (error) {
       toast.error(error.message, { position: 'bottom-center' });
@@ -57,7 +63,7 @@ const Login = ({ setIsAuthenticated, setUserName }) => {
 
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Submit
+            Log In
           </button>
         </div>
 
@@ -68,3 +74,4 @@ const Login = ({ setIsAuthenticated, setUserName }) => {
 };
 
 export default Login;
+

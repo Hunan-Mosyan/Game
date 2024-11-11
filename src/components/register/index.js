@@ -5,13 +5,14 @@ import { setDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom';
+import './register.css'
 
 const Register = ({ setIsAuthenticated, setUserName }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
-  const navigate = useNavigate(); // Для навигации после регистрации
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -19,19 +20,17 @@ const Register = ({ setIsAuthenticated, setUserName }) => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      setIsAuthenticated(true);
-      setUserName(user.displayName || user.email); // Устанавливаем имя пользователя
+      setUserName(`${fname} ${lname}`);
+    setIsAuthenticated(true);
 
       toast.success('User registered successfully!', { position: 'top-center' });
 
-      // Добавляем информацию о пользователе в базу данных
       await setDoc(doc(db, 'Users', user.uid), {
         email: user.email,
         firstName: fname,
         lastName: lname,
       });
 
-      // После регистрации перенаправляем на экран приветствия
       navigate('/profile');
     } catch (error) {
       toast.error(error.message, { position: 'bottom-center' });

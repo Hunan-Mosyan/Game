@@ -1,133 +1,145 @@
-/* Основной стиль для контейнера игры */
+/* Main container style for the game */
 .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #f0f4f8; 
-    font-family: 'Arial', sans-serif; 
-    color: #333; 
-    padding: 20px;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .game-container h2 {
-    font-size: 2.5rem;
-    color: #2c3e50; 
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: 700;
-  }
-  
-  .game-container button {
-    background: linear-gradient(145deg, #00b4d8, #008cba);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    margin: 10px 0;
-    width: 80%;
-    max-width: 400px;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-  }
-  
-  .game-container button:hover {
-    background: linear-gradient(145deg, #008cba, #00b4d8);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .game-container button:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .score {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2980b9;
-    margin-top: 30px;
-  }
-  
-  .question-number {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-top: 5px;
-    font-weight: 500;
-  }
-  
-  .progress-container {
-    margin-top: 20px;
-    width: 80%;
-    max-width: 400px;
-    height: 8px;
-    background-color: #e1e1e1;
-    border-radius: 20px;
-    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .progress-bar {
-    height: 100%;
-    width: 0%;
-    background-color: #00b4d8;
-    border-radius: 20px;
-    transition: width 0.5s ease;
-  }
-  
-  .game-container p,
-  .game-container button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #1c1c3c; /* Dark background for a game-show look */
+  font-family: 'Arial', sans-serif;
+  color: #fff; /* Light text color */
+  padding: 20px;
+  transition: background 0.3s ease-in-out;
+}
+
+.game-container h2 {
+  font-size: 2.5rem;
+  color: #fbc531; /* Gold color for the title */
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+/* Style for buttons to look like game options */
+.game-container button {
+  background: linear-gradient(145deg, #004d99, #0066cc); /* Dark blue with gradient */
+  color: white;
+  border: 2px solid #004080;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  margin: 10px 0;
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.game-container button:hover {
+  background: linear-gradient(145deg, #0066cc, #004d99); /* Hover gradient effect */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.game-container button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for the score and question number */
+.score {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fbc531; /* Gold for score display */
+  margin-top: 30px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.question-number {
+  font-size: 1.3rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Progress bar styling for game progress */
+.progress-container {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 400px;
+  height: 10px;
+  background-color: #33334d;
+  border-radius: 20px;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #fbc531; /* Gold progress color */
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+/* Fade-in effect for text and buttons */
+.game-container p,
+.game-container button {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.game-container p {
+  font-size: 1.2rem;
+  color: #dcdde1;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    animation: fadeIn 1s forwards;
   }
-  
-  .game-container p {
-    font-size: 1.1rem;
-    color: #34495e;
-    margin-bottom: 20px;
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #ecf0f1; 
-    overflow-x: hidden;
-  }
-  
+}
+
+/* Basic body style for the whole page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c3c;
+  overflow-x: hidden;
+}
+
+/* Style for lifeline buttons like "50:50" */
 .lifeline-button {
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-  }
-  
-  .lifeline-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .lifeline-button:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
-  }
-      
+  background-color: #8e44ad; /* Purple for lifelines */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.lifeline-button:hover {
+  background-color: #6f3492;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.lifeline-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Style for the restart button */
 .restart-button {
   background-color: #3498db;
   color: white;

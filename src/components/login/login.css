@@ -1,13 +1,15 @@
-/* body {
-    background-color: #f0f2f5;
+.login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    background-image: url('/src/images/logo.png'); 
+    background-size: cover;
+    background-position: center;
   }
   
-  form {
+  
+  .login-form {
     background-color: #ffffff;
     max-width: 400px;
     width: 100%;
@@ -17,7 +19,7 @@
     text-align: center;
   }
   
-  h3 {
+  .login-form h3 {
     color: #333;
     margin-bottom: 1rem;
   }
@@ -33,7 +35,6 @@
     margin-bottom: 0.5rem;
   }
   
-  input[type="text"],
   input[type="email"],
   input[type="password"] {
     width: 100%;
@@ -44,7 +45,6 @@
     transition: all 0.3s;
   }
   
-  input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus {
     border-color: #007bff;
@@ -80,4 +80,4 @@
   p a:hover {
     text-decoration: underline;
   }
-   */
+  

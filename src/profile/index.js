@@ -4,14 +4,13 @@ import './index.css'
 
 const Profile = ({ userName }) => {
   const handleStartGame = () => {
-    // Логика для начала игры (например, редирект на страницу игры)
-    // Можно добавить редирект на страницу игры
-    window.location.href = '/game'; // Замените '/game' на путь к вашей странице игры
+    
+    window.location.href = '/game'; 
   };
 
   return (
     <div className="welcome-page">
-      <h1>Hello, {userName}!</h1> {/* Отображаем имя пользователя */}
+      <h1>Hello, {userName}!</h1> 
       <p>Welcome to the game! Here's a brief description:</p>
       <p>1. The Goal of the Game
 Your goal is to answer a series of 15 multiple-choice questions correctly. Each question has four possible answers, but only one correct answer. The more questions you answer correctly, the higher your prize!
